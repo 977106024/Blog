@@ -42,6 +42,8 @@ fn2().call(window)  现在得到的变量'a'是:undefined
 
 我们知道js的`this`不是在函数里面定义的，是要看调用者是谁，`obj.fn()`在调用时，`obj`是调用者。而`fn2()`的调用者是谁？不知道是谁那就是`window`。
 
+至于为什么是`undefined`，因为js在严格模式下this不会自动绑定到全局对象(window)上。非严格模式下this就是window。
+
 当然你也可以使用`call`给它指派this。
 ```
 let a = '全局变量'
@@ -58,7 +60,6 @@ fn2()  //现在得到的变量'a'是:undefined
 fn2().call(obj)  // 现在得到的变量'a'是:局部变量
 ```
 
-至于为什么是`undefined`，因为js在严格模式下this不会自动绑定到全局对象(window)上。非严格模式下this就是window。
 
 ### React
 回到react。当我们写一个事件时`onClick={this.fn}`,事实上`fn`函数是作为一个回调函数传给了`addEventListener()`。
