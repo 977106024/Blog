@@ -1,4 +1,5 @@
 ## React 为啥要绑定this
+> onClick={this.fn}.bind(this)
 
 在react中我们总是看到事件后面跟着一个`.bind(this)`,也就是绑定this，如果你尝试不写绑定，那react就会报错`Cannot read property 'setState' of undefined`，意思是说`this`是`undefined`。
 
@@ -57,7 +58,7 @@ fn2()  //现在得到的变量'a'是:undefined
 fn2().call(obj)  // 现在得到的变量'a'是:局部变量
 ```
 
-至于为什么是`undefined`，因为js在严格模式下this不会自动绑定到全局对象(window)上。非严格模式下a就是window。
+至于为什么是`undefined`，因为js在严格模式下this不会自动绑定到全局对象(window)上。非严格模式下this就是window。
 
 ### React
 回到react。当我们写一个事件时`onClick={this.fn}`,事实上`fn`函数是作为一个回调函数传给了`addEventListener()`。
