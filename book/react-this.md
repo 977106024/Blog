@@ -1,6 +1,6 @@
 ## React 为啥要绑定this
 
-在react中我们总是看到事件后面跟着一个.bind(this),也就是绑定this，如果你尝试不写绑定，那react就会报错`Cannot read property 'setState' of undefined`，意思是说`this`是`undefined`。
+在react中我们总是看到事件后面跟着一个`.bind(this)`,也就是绑定this，如果你尝试不写绑定，那react就会报错`Cannot read property 'setState' of undefined`，意思是说`this`是`undefined`。
 
 在官方文档上是这样解释的：
 > 这并不是 React 的特殊行为；它是函数如何在 JavaScript 中运行的一部分。通常情况下，如果你没有在方法后面添加 () ，例如 onClick={this.handleClick}，你应该为这个方法绑定 this。   
